@@ -153,7 +153,7 @@ int main(void)
 
   HAL_UART_Receive_IT(&huart3, &Rx_data, 1);
   HAL_UART_Receive_IT(&huart1, (uint8_t *) Rx_data, 1);
-  init_MPU();
+//  init_MPU();
   initBMP();
 //  calibration_IMU();
   /* USER CODE END 2 */
@@ -661,7 +661,7 @@ void StartDefaultTask(void const * argument)
 
 //    data = osMailAlloc(QueueHandle, osWaitForever); /* Allocate memory */
 
-   data_imu_raw = process_MPU();
+//   data_imu_raw = process_MPU();
 //    data->Gyro_x = data_raw.Gyro_x;
 //    data->Gyro_y = data_raw.Gyro_y;
 //    data->Gyro_z = data_raw.Gyro_z;
@@ -676,7 +676,7 @@ void StartDefaultTask(void const * argument)
 //        {
 //          osDelay(50);
 //        }
-    osDelay(1);
+//    osDelay(1);
   }
   /* USER CODE END 5 */ 
 }
@@ -719,7 +719,8 @@ void StartTask03(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+	  readBMP();
+    osDelay(100);
   }
   /* USER CODE END StartTask03 */
 }

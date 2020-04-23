@@ -1,0 +1,6 @@
+main.c:61:6:float2Bytes	24	static
+main.c:72:7:bytes2Float	24	static
+main.c:89:5:main	16	static
+main.c:143:6:SystemClock_Config	72	static
+main.c:181:13:MX_GPIO_Init	40	static
+main.c:210:6:Error_Handler	4	static

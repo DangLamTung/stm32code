@@ -1,0 +1,4 @@
+bmp180.c:3:6:initBMP	24	static
+bmp180.c:52:6:readBMP	24	static
+bmp180.c:123:8:sample_BMP	32	static
+bmp180.c:132:8:get_alt_bmp	40	static

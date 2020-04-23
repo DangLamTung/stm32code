@@ -1,0 +1,4 @@
+MadgwickAHRS.c:44:6:MadgwickAHRSupdate	200	static
+MadgwickAHRS.c:143:6:MadgwickAHRSupdateIMU	152	static
+MadgwickAHRS.c:242:6:quaternion_rot	48	static
+MadgwickAHRS.c:315:7:invSqrt	32	static

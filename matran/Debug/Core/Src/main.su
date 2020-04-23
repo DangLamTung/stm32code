@@ -1,0 +1,9 @@
+Matrix.hpp:43:2:Matrix::Matrix(int, int)	40	static
+Matrix.hpp:55:9:int Matrix::get_value(double*)	24	static
+Matrix.hpp:61:9:int Matrix::print(UART_HandleTypeDef)	40	static
+Matrix.hpp:37:7:constexpr Matrix::Matrix(const Matrix&)	16	static
+main.cpp:72:5:int main()	664	static
+main.cpp:144:6:void SystemClock_Config()	88	static
+main.cpp:190:13:void MX_USART3_UART_Init()	8	static
+main.cpp:223:13:void MX_GPIO_Init()	24	static
+main.cpp:239:6:void Error_Handler()	4	static

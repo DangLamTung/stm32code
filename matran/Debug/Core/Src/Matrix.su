@@ -1,0 +1,13 @@
+Matrix.hpp:43:2:Matrix::Matrix(int, int)	40	static
+Matrix.cpp:19:1:Matrix::~Matrix()	16	static
+Matrix.cpp:19:1:virtual Matrix::~Matrix()	16	static
+Matrix.hpp:37:7:constexpr Matrix::Matrix(const Matrix&)	16	static
+Matrix.cpp:24:8:Matrix diag_mat(int, int)	40	static
+Matrix.cpp:34:8:Matrix getCofactor(Matrix, int, int)	40	static
+Matrix.cpp:56:8:Matrix mul_mat(Matrix, Matrix)	64	static
+Matrix.cpp:70:8:Matrix transpose(Matrix)	32	static
+Matrix.hpp:37:7:constexpr Matrix& Matrix::operator=(const Matrix&)	16	static
+Matrix.cpp:82:8:double determinant(Matrix)	112	static
+Matrix.cpp:106:8:Matrix adjoint(Matrix)	104	static
+Matrix.cpp:140:8:Matrix inverse(Matrix)	80	static
+Matrix.cpp:194:8:char* ftoa(double, char*, int)	56	static

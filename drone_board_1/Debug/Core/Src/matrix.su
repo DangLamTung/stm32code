@@ -1,0 +1,11 @@
+matrix.c:6:5:init_mat	56	static
+matrix.c:19:6:free_mat	24	static
+matrix.c:23:5:diag_mat	56	static
+matrix.c:41:5:mul_mat	72	static
+matrix.c:55:5:cholesky	80	static
+matrix.c:90:5:getCofactor	48	static
+matrix.c:112:5:transpose	56	static
+matrix.c:124:8:determinant	88	static
+matrix.c:148:5:adjoint	96	static
+matrix.c:182:5:inverse	88	static
+matrix.c:198:8:det_cholesky	48	static

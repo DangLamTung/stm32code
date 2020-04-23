@@ -1,0 +1,2 @@
+PID.c:3:5:PID_pitch	24	static
+PID.c:29:6:motor_mixing	16	static

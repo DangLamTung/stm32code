@@ -1,0 +1,16 @@
+main.h:75:13:MX_I2C1_Init	8	static
+main.h:109:13:MX_TIM1_Init	96	static
+main.h:196:13:MX_TIM4_Init	32	static
+main.h:247:13:MX_USART1_UART_Init	8	static
+main.h:280:13:MX_USART3_UART_Init	8	static
+main.h:313:13:MX_GPIO_Init	48	static
+stm32f4xx_it.c:70:6:NMI_Handler	4	static
+stm32f4xx_it.c:83:6:HardFault_Handler	4	static
+stm32f4xx_it.c:98:6:MemManage_Handler	4	static
+stm32f4xx_it.c:113:6:BusFault_Handler	4	static
+stm32f4xx_it.c:128:6:UsageFault_Handler	4	static
+stm32f4xx_it.c:143:6:SVC_Handler	4	static
+stm32f4xx_it.c:156:6:DebugMon_Handler	4	static
+stm32f4xx_it.c:169:6:PendSV_Handler	4	static
+stm32f4xx_it.c:182:6:SysTick_Handler	8	static
+stm32f4xx_it.c:203:6:TIM3_IRQHandler	8	static
