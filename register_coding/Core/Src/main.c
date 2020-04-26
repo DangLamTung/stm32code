@@ -113,18 +113,12 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-//	 GPIOC->BSRR |= GPIO_BSRR_BS13;
-//
-//	      /* Insert delay 250 ms */
-//	 LL_mDelay(250);
-//	 GPIOC->BSRR |= GPIO_BSRR_BR13;
-//	 LL_mDelay(250);
 
 	 GPIOC->ODR |= GPIO_ODR_ODR13;
-	 LL_mDelay(250);
+	 LL_mDelay(500);
 
 	 GPIOC->ODR &= ~GPIO_ODR_ODR13;
-	 LL_mDelay(250);
+	 LL_mDelay(500);
   }
   /* USER CODE END 3 */
 }
@@ -135,42 +129,14 @@ int main(void)
   */
 void SystemClock_Config(void)
 {
-//  LL_FLASH_SetLatency(LL_FLASH_LATENCY_2);
+
   FLASH->ACR = (FLASH->ACR) | LL_FLASH_LATENCY_2;
-   if(LL_FLASH_GetLatency() != LL_FLASH_LATENCY_2)
-  {
-    Error_Handler();  
-  }
-   RCC->CR |= RCC_CR_HSEON;
-   uint32_t temp = RCC->CR;
-   /* Wait till HSE is ready */
-  while(LL_RCC_HSE_IsReady() != 1)
-  {
-    
-  }
-//  LL_RCC_PLL_ConfigDomain_SYS(LL_RCC_PLLSOURCE_HSE_DIV_1, LL_RCC_PLL_MUL_9);
-  RCC->CFGR |= LL_RCC_PLLSOURCE_HSE_DIV_1|LL_RCC_PLL_MUL_9;
+  RCC->CR |= RCC_CR_HSEON;
+  RCC->CFGR |= (RCC_CFGR_PLLSRC | 0x00000000U);// Setup PLL source without prescale
+  RCC->CFGR |=	RCC_CFGR_PLLMULL9;             // Setup PLL multiplication factor
   RCC->CR |= RCC_CR_PLLON;
-//  LL_RCC_PLL_Enable();
-
-   /* Wait till PLL is ready */
-//  while( (RCC->CR & RCC_CR_PLLRDY) != 1)
-//  {
-//
-//  }
-
-  RCC->CFGR |= 0x00000000;
-//  LL_RCC_SetAHBPrescaler(LL_RCC_SYSCLK_DIV_1);
-  RCC->CFGR |= LL_RCC_APB1_DIV_2 | LL_RCC_APB2_DIV_1 | LL_RCC_SYS_CLKSOURCE_PLL;
-//  LL_RCC_SetAPB1Prescaler(LL_RCC_APB1_DIV_2);
-//  LL_RCC_SetAPB2Prescaler(LL_RCC_APB2_DIV_1);
-//  LL_RCC_SetSysClkSource(LL_RCC_SYS_CLKSOURCE_PLL);
-
-   /* Wait till System clock is ready */
-  while(LL_RCC_GetSysClkSource() != LL_RCC_SYS_CLKSOURCE_STATUS_PLL)
-  {
-  
-  }
+  RCC->CFGR |= RCC_CFGR_SW_PLL;
+  RCC->CFGR |= RCC_CFGR_PPRE1_DIV2 | RCC_CFGR_PPRE2_DIV1;
   LL_Init1msTick(72000000);
   SysTick->CTRL |= LL_SYSTICK_CLKSOURCE_HCLK;
   LL_SetSystemCoreClock(72000000);
@@ -183,34 +149,9 @@ void SystemClock_Config(void)
   */
 static void MX_GPIO_Init(void)
 {
-  LL_GPIO_InitTypeDef GPIO_InitStruct = {0};
-
   /* GPIO Ports Clock Enable */
-  LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_GPIOC);
-  LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_GPIOD);
-  LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_GPIOB);
-  LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_GPIOA);
-
-  /**/
-  LL_GPIO_ResetOutputPin(GPIOC, LL_GPIO_PIN_13);
-
-  /**/
-  LL_GPIO_ResetOutputPin(GPIOB, LL_GPIO_PIN_13);
-
-  /**/
-  GPIO_InitStruct.Pin = LL_GPIO_PIN_13;
-  GPIO_InitStruct.Mode = LL_GPIO_MODE_OUTPUT;
-  GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_LOW;
-  GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_PUSHPULL;
-  LL_GPIO_Init(GPIOC, &GPIO_InitStruct);
-
-  /**/
-  GPIO_InitStruct.Pin = LL_GPIO_PIN_13;
-  GPIO_InitStruct.Mode = LL_GPIO_MODE_OUTPUT;
-  GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_LOW;
-  GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_PUSHPULL;
-  LL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
+  RCC->APB2ENR |= RCC_APB2ENR_IOPCEN;
+  GPIOC->CRH |= GPIO_CRH_MODE13_0;
 }
 
 /* USER CODE BEGIN 4 */
